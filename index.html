@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>HAMADA HAIDER - CHAOS DIMENSION</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="studio-logo">
+            <h1 class="glitch-text" data-text="APOHAIDAR">APOHAIDAR</h1>
+            <div class="energy-pulse"></div>
+        </div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+
+    <!-- Game Container -->
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        
+        <!-- UI Overlay -->
+        <div id="ui-overlay" class="ui-hidden">
+            <!-- HUD Elements -->
+            <div class="hud-container">
+                <div class="player-stats">
+                    <div class="health-bar">
+                        <div class="stat-label">HEALTH</div>
+                        <div class="bar-container">
+                            <div id="health-fill" class="bar-fill health-fill"></div>
+                        </div>
+                    </div>
+                    <div class="energy-bar">
+                        <div class="stat-label">ENERGY</div>
+                        <div class="bar-container">
+                            <div id="energy-fill" class="bar-fill energy-fill"></div>
+                        </div>
+                    </div>
+                    <div class="xp-bar">
+                        <div class="stat-label">XP</div>
+                        <div class="bar-container">
+                            <div id="xp-fill" class="bar-fill xp-fill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chaos-indicator">
+                    <div id="chaos-timer" class="chaos-timer">20</div>
+                    <div class="chaos-label">NEXT CHAOS</div>
+                </div>
+
+                <div class="skill-shortcuts">
+                    <div class="skill-slot">Q</div>
+                    <div class="skill-slot">E</div>
+                    <div class="skill-slot">R</div>
+                </div>
+            </div>
+
+            <!-- Mobile Controls -->
+            <div id="mobile-controls" class="mobile-controls hidden-desktop">
+                <div class="joystick-container">
+                    <div id="joystick-base" class="joystick-base">
+                        <div id="joystick-handle" class="joystick-handle"></div>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button id="jump-btn" class="action-btn">JUMP</button>
+                    <button id="dash-btn" class="action-btn">DASH</button>
+                    <button id="attack-btn" class="action-btn attack">ATTACK</button>
+                </div>
+            </div>
+
+            <!-- Menus -->
+            <div id="main-menu" class="menu-container">
+                <h1 class="game-title glitch-text" data-text="CHAOS DIMENSION">CHAOS DIMENSION</h1>
+                <div class="menu-buttons">
+                    <button class="menu-btn" onclick="game.startGame()">START GAME</button>
+                    <button class="menu-btn" onclick="game.showSkillTree()">SKILL TREE</button>
+                    <button class="menu-btn" onclick="game.showStore()">STORE</button>
+                    <button class="menu-btn" onclick="game.showSettings()">SETTINGS</button>
+                </div>
+            </div>
+
+            <!-- Skill Tree Panel -->
+            <div id="skill-tree-panel" class="panel hidden">
+                <h2>SKILL TREE</h2>
+                <div class="skill-tree-container">
+                    <!-- Skills will be dynamically generated -->
+                </div>
+                <button class="close-btn" onclick="game.closePanels()">CLOSE</button>
+            </div>
+
+            <!-- Store Panel -->
+            <div id="store-panel" class="panel hidden">
+                <h2>DIMENSION STORE</h2>
+                <div class="store-grid">
+                    <!-- Store items will be dynamically generated -->
+                </div>
+                <button class="close-btn" onclick="game.closePanels()">CLOSE</button>
+            </div>
+
+            <!-- Settings Panel -->
+            <div id="settings-panel" class="panel hidden">
+                <h2>SETTINGS</h2>
+                <div class="settings-container">
+                    <div class="setting-item">
+                        <label>Music Volume</label>
+                        <input type="range" id="music-volume" min="0" max="100" value="70">
+                    </div>
+                    <div class="setting-item">
+                        <label>SFX Volume</label>
+                        <input type="range" id="sfx-volume" min="0" max="100" value="70">
+                    </div>
+                    <div class="setting-item">
+                        <label>Performance Mode</label>
+                        <button id="performance-toggle" class="toggle-btn">OFF</button>
+                    </div>
+                    <div class="setting-item">
+                        <label>Particle Effects</label>
+                        <button id="particle-toggle" class="toggle-btn">ON</button>
+                    </div>
+                </div>
+                <button class="close-btn" onclick="game.closePanels()">CLOSE</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Three.js and Game Scripts -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.128.0/build/three.module.js"
+            }
+        }
+    </script>
+    
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
